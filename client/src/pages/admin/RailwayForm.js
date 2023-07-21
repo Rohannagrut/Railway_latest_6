@@ -1,45 +1,97 @@
-import React from "react";
-import "./RailwayForm.css";
-import Layout from "../../components/Layout";
+// import "./RailwayForm.css";
+// import React, { useEffect, useRef, useState } from "react";
+// import { useReactToPrint } from "react-to-print";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import axios from "axios";
+// import { Col, Table, Tag } from "antd";
+// import Layout from "../../components/Layout";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useLocation, useNavigate, useParams } from "react-router-dom";
+// import { hideLoading, showLoading } from "../../redux/features/alertSlice";
+// import { useContext } from "react";
+// import UserContext from "./useContext";
 
-const RailwayForm = () => {
-  function fuck() {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>;
-    let button = document.getElementById("button");
-    let makepdf = document.getElementById("makepdf");
-    let mywindow = window.open("", "PRINT", "height=400,width=600");
+// const RailwayForm = (props) => {
+//   const data = useContext(UserContext);
+//   console.log(data);
+//   useEffect(() => {
+//     console.log(data);
+//   }, [data]);
+//   // data = null;
 
-    mywindow.document.write(makepdf.innerHTML);
+//   const [users, setUsers] = useState([]);
+//   const { user } = useSelector((state) => state.user);
+//   const navigate = useNavigate();
+//   const [userprofile, setUsersProfile] = useState(null);
+//   const dispatch = useDispatch();
+//   const params = useParams();
+//   // console.log(props.zz);
+//   const componentRef = useRef();
+//   const handlePrint = useReactToPrint({
+//     content: () => componentRef.current,
+//     documentTitle: "emp-data",
+//     onAfterPrint: () => alert("print success"),
+//   });
 
-    mywindow.document.close();
-    mywindow.focus();
+//   // const getUser = async () => {
+//   //   try {
+//   //     const res = await axios.get("/api/v1/admin/getAllDoctors", {
+//   //       headers: {
+//   //         Authorization: `Bearer ${localStorage.getItem("token")}`,
+//   //       },
+//   //     });
+//   //     if (res.data.success) {
+//   //       setUsers(res.data.data);
+//   //     }
+//   //   } catch (error) {
+//   //     console.log(error);
+//   //   }
+//   // };
+//   const getUserInfo = async () => {
+//     try {
+//       const res = await axios.post(
+//         "/api/v1/profile/getProfileInfo",
+//         {
+//           userId: data,
+//         },
+//         {
+//           headers: {
+//             Authorization: `Bearer ${localStorage.getItem("token")}`,
+//           },
+//         }
+//       );
+//       dispatch(hideLoading());
+//       if (res.data.message) {
+//         setUsersProfile(res.data.data);
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
 
-    mywindow.print();
-    mywindow.close();
+//   useEffect(() => {
+//     // getUser();
+//     getUserInfo();
+//   }, []);
 
-    return true;
-  }
+//   return (
+//     <>
+//       <Layout>
+//         <div
+//           ref={componentRef}
+//           style={{ width: "100%", height: window.innerHeight }}
+//         >
+//           <div className="text-center my-3 border py-2 ">
+//             <h1>Applicants data</h1>
+//           </div>
+//           <button onClick={handlePrint}>Print this out</button>
+//         </div>
+//       </Layout>
+//     </>
+//   );
+// };
 
-  return (
-    <Layout>
-      <div>
-        <div class="container">
-          <button id="button" onClick={fuck}>
-            Generate PDF
-          </button>
-          <div class="card" id="makepdf">
-            <h2>Veermata Jijabai Technological Institute</h2>
+// export default RailwayForm;
 
-            <h2>Class</h2>
-            <h2>Season ticket No</h2>
-            <h2>Montly/Quaterly/Half yearly</h2>
-            <h2>From</h2>
-            <h2>to</h2>
-          </div>
-        </div>
-      </div>
-    </Layout>
-  );
-};
-
-export default RailwayForm;
+// // 64b8da27e73213f08f8ad33e
+// // 64b930d1e79db93a9fbf6107

@@ -14,12 +14,14 @@ import GeneratePdf from "./pages/GeneratePdf";
 import RailwayForm from "./pages/admin/RailwayForm";
 import UploadImage from "./pages/UploadImage";
 import ImageUploader from "./pages/ImageUploader";
+import Profile from "./pages/Profile";
 // import Profile from "./pages/doctor/Profile";
 // import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
+
   return (
     <>
       <BrowserRouter>
@@ -59,15 +61,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/Railway-form"
-              element={
-                <ProtectedRoute>
-                  <RailwayForm />
-                </ProtectedRoute>
-              }
-            />
-
             <Route
               path="/admin/doctors"
               element={

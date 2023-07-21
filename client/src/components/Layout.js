@@ -32,11 +32,11 @@ const Layout = ({ children }) => {
       path: "/upload-image",
       icon: "fa-solid fa-user-doctor",
     },
-    {
-      name: "Delete Documents",
-      path: "/add-documents",
-      icon: "fa-solid fa-user-doctor",
-    },
+    // {
+    //   name: "Delete Documents",
+    //   path: "/add-documents",
+    //   icon: "fa-solid fa-user-doctor",
+    // },
 
     // {
     //   name: "Profile",

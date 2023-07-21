@@ -19,7 +19,6 @@ export const userMenu = [
     path: "/apply-form",
     icon: "fa-solid fa-user-doctor",
   },
-
 ];
 
 // admin menu
@@ -43,11 +42,6 @@ export const adminMenu = [
   {
     name: "Generate Pdf ",
     path: "/generate-pdf",
-    icon: "fa-solid fa-user",
-  },
-  {
-    name: "Railway form print ",
-    path: "/Railway-form",
     icon: "fa-solid fa-user",
   },
 ];
