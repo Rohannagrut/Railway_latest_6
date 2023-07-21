@@ -22,20 +22,6 @@ const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
   const [popupModal, setPopupModal] = useState(false);
-  // const navigate = useNavigate();
-
-  // const data = createContext();
-  // let id = null;
-
-  //getUsers
-
-  // const redirectToRailway = (id) => {
-  //   navigate("/Railway-form", {
-  //     state: {
-  //       id: id,
-  //     },
-  //   });
-  // };
   const getDoctors = async () => {
     try {
       const res = await axios.get("/api/v1/admin/getAllDoctors", {
@@ -160,7 +146,7 @@ const Doctors = () => {
       ),
     },
   ];
-
+  console.log(selectedBill);
   return (
     <Layout>
       <div className="d-flex justify-content-between"></div>
@@ -170,7 +156,7 @@ const Doctors = () => {
         <Modal
           width={400}
           pagination={false}
-          title="Invoice Details"
+          title="Railway Form"
           visible={popupModal}
           onCancel={() => {
             setPopupModal(false);
@@ -178,29 +164,25 @@ const Doctors = () => {
           footer={false}
         >
           {/* ============ invoice modal start ==============  */}
-          <div id="invoice-POS" ref={componentRef}>
+          <div ref={componentRef}>
             <center id="top">
-              <div className="logo" />
+              <div />
               <div className="info">
-                <h2>Techinfo YT POS</h2>
-                <p> Contact : 123456 | Mumbai Maharashtra</p>
+                <h2>
+                  {selectedBill.firstName} {selectedBill.lastName}
+                </h2>
+                <p>{selectedBill.age}</p>
               </div>
-              {/*End Info*/}
             </center>
-            {/*End InvoiceTop*/}
-            {/* <div id="mid">
+            <div id="mid">
               <div className="mt-2">
                 <p>
-                  Customer Name : <b>{selectedBill.customerName}</b>
-                  <br />
-                  Phone No : <b>{selectedBill.customerNumber}</b>
-                  <br />
-                  Date : <b>{selectedBill.date.toString().substring(0, 10)}</b>
-                  <br />
+                  From <b>{selectedBill.from}</b>
+                  To<b>{selectedBill.to}</b>
                 </p>
                 <hr style={{ margin: "5px" }} />
               </div>
-            </div> */}
+            </div>
             {/*End Invoice Mid*/}
             <div id="bot">
               <div id="table">
