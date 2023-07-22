@@ -94,6 +94,25 @@ const Doctors = () => {
       dataIndex: "phone",
     },
 
+    // {
+    //   title: "Actions",
+    //   dataIndex: "actions",
+    //   render: (text, record) => (
+    //     <div className="d-flex">
+    //       {record.status === "pending" ? (
+    //         <button
+    //           className="btn btn-primary"
+    //           // onClick={}
+    //           onClick={() => handleAccountStatus(record, "Approved")}
+    //         >
+    //           Approve
+    //         </button>
+    //       ) : (
+    //         <button className="btn btn-success">Approved</button>
+    //       )}
+    //     </div>
+    //   ),
+    // },
     {
       title: "Actions",
       dataIndex: "actions",
@@ -101,17 +120,40 @@ const Doctors = () => {
         <div className="d-flex">
           {record.status === "pending" ? (
             <button
-              className="btn btn-success"
-              // onClick={}
+              className="btn btn-primary"
+              onClick={() => handleAccountStatus(record, "approved")}
             >
               Approve
             </button>
+          ) : record.status === "approved" ? (
+            <button className="btn btn-success">Approved</button>
           ) : (
-            <button className="btn btn-success">Done</button>
+            <button className="btn btn-secondary" disabled>
+              Cannot Approve
+            </button>
           )}
         </div>
       ),
     },
+
+    // {
+    //   title: "Actions",
+    //   dataIndex: "actions",
+    //   render: (text, record) => (
+    //     <div className="d-flex">
+    //       {record.status === "pending" ? (
+    //         <button
+    //           className="btn btn-danger"
+    //           onClick={() => handleAccountStatus(record, "rejected")}
+    //         >
+    //           Reject
+    //         </button>
+    //       ) : (
+    //         <button className="btn btn-success">Rejected</button>
+    //       )}
+    //     </div>
+    //   ),
+    // },
     {
       title: "Actions",
       dataIndex: "actions",
@@ -124,12 +166,17 @@ const Doctors = () => {
             >
               Reject
             </button>
-          ) : (
+          ) : record.status === "rejected" ? (
             <button className="btn btn-success">Rejected</button>
+          ) : (
+            <button className="btn btn-secondary" disabled>
+              Cannot Reject
+            </button>
           )}
         </div>
       ),
     },
+
     {
       title: "Print's",
       dataIndex: "_id",
@@ -190,16 +237,16 @@ const Doctors = () => {
                   <tbody>
                     <tr className="tabletitle">
                       <td className="item">
-                        <h2>Item</h2>
+                        <h2></h2>
                       </td>
                       <td className="Hours">
-                        <h2>Qty</h2>
+                        <h2></h2>
                       </td>
                       <td className="Rate">
-                        <h2>Price</h2>
+                        <h2></h2>
                       </td>
                       <td className="Rate">
-                        <h2>Total</h2>
+                        <h2></h2>
                       </td>
                     </tr>
                     {/* {selectedBill.cartItems.map((item) => (
@@ -223,21 +270,21 @@ const Doctors = () => {
                       </>
                     ))} */}
 
-                    <tr className="tabletitle">
+                    {/* <tr className="tabletitle">
                       <td />
                       <td />
                       <td className="Rate">
                         <h2>tax</h2>
                       </td>
                       <td className="payment">
-                        {/* <h2>${selectedBill.tax}</h2> */}
+                        <h2>${selectedBill.tax}</h2>
                       </td>
-                    </tr>
+                    </tr> */}
                     <tr className="tabletitle">
                       <td />
                       <td />
                       <td className="Rate">
-                        <h2>Grand Total</h2>
+                        <h2></h2>
                       </td>
                       <td className="payment">
                         <h2>{/* <b>${selectedBill.totalAmount}</b> */}</h2>
@@ -247,14 +294,14 @@ const Doctors = () => {
                 </table>
               </div>
               {/*End Table*/}
-              <div id="legalcopy">
+              {/* <div id="legalcopy">
                 <p className="legal">
                   <strong>Thank you for your order!</strong> 10% GST application
                   on total amount.Please note that this is non refundable amount
                   for any assistance please write email
                   <b> help@mydomain.com</b>
                 </p>
-              </div>
+              </div> */}
             </div>
             {/*End InvoiceBot*/}
           </div>
