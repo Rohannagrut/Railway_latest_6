@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  verifytoken: {
+    type: String,
+  },
 });
 
 const userModel = mongoose.model("users", userSchema);

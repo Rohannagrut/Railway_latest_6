@@ -47,6 +47,13 @@ const Login = () => {
         <Link to="/register" className="m-2">
           Not a user Register here
         </Link>
+        <Link
+          style={{ color: "black", fontWeight: "bold" }}
+          to="/password-reset"
+          className="m-2"
+        >
+          Forgot Password
+        </Link>
         <button className="btn btn-primary" type="submit">
           Login
         </button>

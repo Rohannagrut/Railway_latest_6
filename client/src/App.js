@@ -15,6 +15,7 @@ import RailwayForm from "./pages/admin/RailwayForm";
 import UploadImage from "./pages/UploadImage";
 import ImageUploader from "./pages/ImageUploader";
 import Profile from "./pages/Profile";
+import PasswordReset from "./pages/PasswordReset";
 // import Profile from "./pages/doctor/Profile";
 // import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
@@ -125,6 +126,22 @@ function App() {
               element={
                 <PublicRoute>
                   <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/password-reset"
+              element={
+                <PublicRoute>
+                  <PasswordReset />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/forgotpassword/:id/:token"
+              element={
+                <PublicRoute>
+                  <PasswordReset />
                 </PublicRoute>
               }
             />

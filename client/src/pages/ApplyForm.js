@@ -29,7 +29,7 @@ const ApplyForm = () => {
         navigate("/");
       } else {
         message.error(res.data.success);
-      } 
+      }
     } catch (error) {
       dispatch(hideLoading);
       console.log(error);
