@@ -16,6 +16,7 @@ import UploadImage from "./pages/UploadImage";
 import ImageUploader from "./pages/ImageUploader";
 import Profile from "./pages/Profile";
 import PasswordReset from "./pages/PasswordReset";
+import ForgotPassword from "./pages/ForgotPassword";
 // import Profile from "./pages/doctor/Profile";
 // import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
@@ -141,7 +142,7 @@ function App() {
               path="/forgotpassword/:id/:token"
               element={
                 <PublicRoute>
-                  <PasswordReset />
+                  <ForgotPassword />
                 </PublicRoute>
               }
             />
