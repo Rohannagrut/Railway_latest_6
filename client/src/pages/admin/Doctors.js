@@ -116,25 +116,6 @@ const Doctors = () => {
         </div>
       ),
     },
-
-    // {
-    //   title: "Actions",
-    //   dataIndex: "actions",
-    //   render: (text, record) => (
-    //     <div className="d-flex">
-    //       {record.status === "pending" ? (
-    //         <button
-    //           className="btn btn-danger"
-    //           onClick={() => handleAccountStatus(record, "rejected")}
-    //         >
-    //           Reject
-    //         </button>
-    //       ) : (
-    //         <button className="btn btn-success">Rejected</button>
-    //       )}
-    //     </div>
-    //   ),
-    // },
     {
       title: "Actions",
       dataIndex: "actions",
@@ -182,9 +163,9 @@ const Doctors = () => {
       <Table columns={columns} dataSource={doctors} bordered />
       {popupModal && (
         <Modal
-          width={400}
+          width={1100}
+          height={400}
           pagination={false}
-          title="Railway Form"
           visible={popupModal}
           onCancel={() => {
             setPopupModal(false);
@@ -193,49 +174,58 @@ const Doctors = () => {
         >
           {/* ============ invoice modal start ==============  */}
           <div ref={componentRef}>
-            <center id="top">
-              <div />
-              {/* <h5>VEERMATA JIJABAI TECHNOLOGICAL INSTITUTE</h5> */}
-              <div className="info">
-                <p className="mt-4">
+            <div
+              style={{
+                "margin-left": "400px",
+                "margin-top": "0px",
+                border: "5px solid black",
+              }}
+            >
+              <div style={{ "margin-top": "180px", "margin-left": "129px" }}>
+                <p>
                   {selectedBill.firstName} {selectedBill.lastName}
                 </p>
-                {/* <p></p> */}
-                <p>{selectedBill.age}</p>
-                <p>{selectedBill.birth}</p>
-                <p>{selectedBill.class}</p>
-                <p>{selectedBill.period}</p>
-                From <p>{selectedBill.from}</p>
-                To<p>{selectedBill.to}</p>
-                <p>{selectedBill.previousno}</p>
-                <p>{selectedBill.previousfrom}</p>
-                <p>{selectedBill.previousto}</p>
-                <p>{selectedBill.previousticket}</p>
-                {/* <p>{selectedBill.}</p> */}
               </div>
-            </center>
-            <div id="mid">
-              <div className="mt-2">
-                <hr style={{ margin: "5px" }} />
+              <div style={{ "margin-top": "3px" }}>
+                <span style={{ "margin-left": "57px" }}>
+                  {selectedBill.age}
+                </span>
+                <span
+                  style={{ "margin-left": "438.5px", "margin-top": "57px" }}
+                >
+                  {selectedBill.birth}
+                </span>
               </div>
-            </div>
-            {/*End Invoice Mid*/}
-            <div id="bot">
-              <div id="table">
-                <table>
-                  <tbody>
-                    <tr className="tabletitle">
-                      <td />
-                      <td />
-                      <td className="Rate">
-                        <h2></h2>
-                      </td>
-                      <td className="payment">
-                        <h2>{/* <b>${selectedBill.totalAmount}</b> */}</h2>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+
+              <div style={{ "margin-top": "55px" }}>
+                <span style={{ "margin-left": "40px" }}>
+                  {selectedBill.class}
+                </span>
+                <span style={{ "margin-left": "65px" }}>
+                  {selectedBill.period}
+                </span>
+                <span style={{ "margin-left": "76px" }}>
+                  {selectedBill.from}
+                </span>
+                <span style={{ "margin-left": "76px" }}>{selectedBill.to}</span>
+              </div>
+
+              <div style={{ "margin-top": "50px" }}>
+                <span style={{ "margin-left": "301.6px" }}>
+                  {selectedBill.previousno}
+                </span>
+                <span style={{ "margin-left": "272.2px" }}>
+                  {selectedBill.previousticket}
+                </span>
+              </div>
+
+              <div style={{ "margin-top": "18.9px" }}>
+                <span style={{ "margin-left": "37.8px" }}>
+                  {selectedBill.previousfrom}
+                </span>{" "}
+                <span style={{ "margin-left": "94.5px" }}>
+                  {selectedBill.previousto}
+                </span>
               </div>
             </div>
           </div>
