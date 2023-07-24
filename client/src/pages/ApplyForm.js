@@ -198,6 +198,74 @@ const ApplyForm = () => {
               <RangePicker />
             </Form.Item>
           </Col>
+
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="Class"
+              name="class"
+              required
+              rules={[{ required: true }]}
+            >
+              {/* <RangePicker /> */}
+              <Input type="text" placeholder="class" />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="Period"
+              name="period"
+              required
+              rules={[{ required: true }]}
+            >
+              {/* <RangePicker /> */}
+              <Input type="text" placeholder="period" />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="previous class no"
+              name="previousno"
+              required
+              rules={[{ required: true }]}
+            >
+              {/* <RangePicker /> */}
+              <Input type="text" placeholder="previous no" />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="previous from "
+              name="previousfrom"
+              required
+              rules={[{ required: true }]}
+            >
+              {/* <RangePicker /> */}
+              <Input type="text" placeholder="previous from " />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="previous to "
+              name="previousto"
+              required
+              rules={[{ required: true }]}
+            >
+              {/* <RangePicker /> */}
+              <Input type="text" placeholder="previous to " />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="previous ticket no "
+              name="previousticket"
+              required
+              rules={[{ required: true }]}
+            >
+              {/* <RangePicker /> */}
+              <Input type="text" placeholder="previous ticket no " />
+            </Form.Item>
+          </Col>
+
           <Col xs={24} md={24} lg={8}></Col>
 
           <Col xs={24} md={24} lg={8}>

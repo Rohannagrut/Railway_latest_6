@@ -68,6 +68,25 @@ const railwaySchema = new mongoose.Schema(
       type: String,
       default: "link is required",
     },
+    class: {
+      type: String,
+      // required:[true,""]
+    },
+    period: {
+      type: String,
+    },
+    previousno: {
+      type: String,
+    },
+    previousfrom: {
+      type: String,
+    },
+    previousto: {
+      type: String,
+    },
+    previousticket: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -94,25 +94,6 @@ const Doctors = () => {
       dataIndex: "phone",
     },
 
-    // {
-    //   title: "Actions",
-    //   dataIndex: "actions",
-    //   render: (text, record) => (
-    //     <div className="d-flex">
-    //       {record.status === "pending" ? (
-    //         <button
-    //           className="btn btn-primary"
-    //           // onClick={}
-    //           onClick={() => handleAccountStatus(record, "Approved")}
-    //         >
-    //           Approve
-    //         </button>
-    //       ) : (
-    //         <button className="btn btn-success">Approved</button>
-    //       )}
-    //     </div>
-    //   ),
-    // },
     {
       title: "Actions",
       dataIndex: "actions",
@@ -214,19 +195,27 @@ const Doctors = () => {
           <div ref={componentRef}>
             <center id="top">
               <div />
+              {/* <h5>VEERMATA JIJABAI TECHNOLOGICAL INSTITUTE</h5> */}
               <div className="info">
-                <h2>
+                <p className="mt-4">
                   {selectedBill.firstName} {selectedBill.lastName}
-                </h2>
+                </p>
+                {/* <p></p> */}
                 <p>{selectedBill.age}</p>
+                <p>{selectedBill.birth}</p>
+                <p>{selectedBill.class}</p>
+                <p>{selectedBill.period}</p>
+                From <p>{selectedBill.from}</p>
+                To<p>{selectedBill.to}</p>
+                <p>{selectedBill.previousno}</p>
+                <p>{selectedBill.previousfrom}</p>
+                <p>{selectedBill.previousto}</p>
+                <p>{selectedBill.previousticket}</p>
+                {/* <p>{selectedBill.}</p> */}
               </div>
             </center>
             <div id="mid">
               <div className="mt-2">
-                <p>
-                  From <b>{selectedBill.from}</b>
-                  To<b>{selectedBill.to}</b>
-                </p>
                 <hr style={{ margin: "5px" }} />
               </div>
             </div>
@@ -235,51 +224,6 @@ const Doctors = () => {
               <div id="table">
                 <table>
                   <tbody>
-                    <tr className="tabletitle">
-                      <td className="item">
-                        <h2></h2>
-                      </td>
-                      <td className="Hours">
-                        <h2></h2>
-                      </td>
-                      <td className="Rate">
-                        <h2></h2>
-                      </td>
-                      <td className="Rate">
-                        <h2></h2>
-                      </td>
-                    </tr>
-                    {/* {selectedBill.cartItems.map((item) => (
-                      <>
-                        <tr className="service">
-                          <td className="tableitem">
-                            <p className="itemtext">{item.name}</p>
-                          </td>
-                          <td className="tableitem">
-                            <p className="itemtext">{item.quantity}</p>
-                          </td>
-                          <td className="tableitem">
-                            <p className="itemtext">{item.price}</p>
-                          </td>
-                          <td className="tableitem">
-                            <p className="itemtext">
-                              {item.quantity * item.price}
-                            </p>
-                          </td>
-                        </tr>
-                      </>
-                    ))} */}
-
-                    {/* <tr className="tabletitle">
-                      <td />
-                      <td />
-                      <td className="Rate">
-                        <h2>tax</h2>
-                      </td>
-                      <td className="payment">
-                        <h2>${selectedBill.tax}</h2>
-                      </td>
-                    </tr> */}
                     <tr className="tabletitle">
                       <td />
                       <td />
@@ -293,19 +237,8 @@ const Doctors = () => {
                   </tbody>
                 </table>
               </div>
-              {/*End Table*/}
-              {/* <div id="legalcopy">
-                <p className="legal">
-                  <strong>Thank you for your order!</strong> 10% GST application
-                  on total amount.Please note that this is non refundable amount
-                  for any assistance please write email
-                  <b> help@mydomain.com</b>
-                </p>
-              </div> */}
             </div>
-            {/*End InvoiceBot*/}
           </div>
-          {/*End Invoice*/}
           <div className="d-flex justify-content-end mt-3">
             <Button type="primary" onClick={handlePrint}>
               Print
