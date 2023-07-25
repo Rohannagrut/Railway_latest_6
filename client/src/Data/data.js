@@ -34,11 +34,11 @@ export const adminMenu = [
     path: "/admin/doctors",
     icon: "fa-solid fa-user-doctor",
   },
-  {
-    name: "Users Applied",
-    path: "/admin/users",
-    icon: "fa-solid fa-user",
-  },
+  // {
+  //   name: "Users Applied",
+  //   path: "/admin/users",
+  //   icon: "fa-solid fa-user",
+  // },
   {
     name: "Generate Pdf ",
     path: "/generate-pdf",

@@ -11,6 +11,8 @@ import axios from "axios";
 import { EyeOutlined } from "@ant-design/icons";
 import { Button, Input, Modal, Table, message } from "antd";
 import { useDispatch } from "react-redux";
+import moment from "moment";
+
 // import "../styles/InvoiceStyles.css";a
 // import { useNavigate } from "react-router-dom";
 // import RailwayForm from "./RailwayForm";
@@ -75,6 +77,62 @@ const Doctors = () => {
           {record.firstName} {record.lastName}
         </span>
       ),
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      render(text, record) {
+        return {
+          props: {
+            style: {
+              background: text === "pending" ? "red" : "green",
+            },
+          },
+          children: <div>{text}</div>,
+        };
+      },
+    },
+    {
+      title: "phone",
+      dataIndex: "phone",
+    },
+    {
+      title: "Age",
+      dataIndex: "age",
+    },
+    {
+      title: "sex",
+      dataIndex: "sex",
+    },
+    {
+      title: "address",
+      dataIndex: "address",
+    },
+    {
+      title: "from",
+      dataIndex: "from",
+    },
+    {
+      title: "To",
+      dataIndex: "to",
+    },
+    {
+      title: "Season Ticket No",
+      dataIndex: "seasonticketNo",
+    },
+    {
+      title: "Date from and to ",
+      dataIndex: "timings",
+      render: (record) => {
+        return (
+          <div>
+            <p>
+              {moment(record[0]).format("DD-MM-YYYY")} to{" "}
+              {moment(record[1]).format("DD-MM-YYYY")}
+            </p>
+          </div>
+        );
+      },
     },
     {
       title: "Documents",

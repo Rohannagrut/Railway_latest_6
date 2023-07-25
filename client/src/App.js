@@ -47,14 +47,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
+            {/* <Route
               path="/admin/users"
               element={
                 <ProtectedRoute>
                   <Users />
                 </ProtectedRoute>
               }
-            />
+            /> */}
             <Route
               path="/generate-pdf"
               element={
