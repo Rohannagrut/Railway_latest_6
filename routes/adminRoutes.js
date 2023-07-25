@@ -5,6 +5,7 @@ const {
   getAllDoctorsController,
   changeAccountStatusController,
   exportUserPdf,
+  changeVerificationStatusController,
 } = require("../controllers/adminCtrl");
 const router = express.Router();
 // get method || users
@@ -19,6 +20,11 @@ router.post(
   "/changeAccountStatus",
   authMiddleware,
   changeAccountStatusController
+);
+router.post(
+  "/changeAccountStatustoVerify",
+  authMiddleware,
+  changeVerificationStatusController
 );
 
 module.exports = router;

@@ -52,11 +52,15 @@ const railwaySchema = new mongoose.Schema(
       type: String,
       required: [true, "Season ticket no is required"],
     },
-    reason: {
-      type: String,
-      required: [true, "reason is required"],
-    },
+    // reason: {
+    //   type: String,
+    //   required: [true, "reason is required"],
+    // },
     status: {
+      type: String,
+      default: "pending",
+    },
+    verificationstatus: {
       type: String,
       default: "pending",
     },

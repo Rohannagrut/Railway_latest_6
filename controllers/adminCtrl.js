@@ -72,7 +72,66 @@ const changeAccountStatusController = async (req, res) => {
     });
   }
 };
-
+// doctor account status
+// const changeVerificationStatusController = async (req, res) => {
+//   try {
+//     const { doctorId, verificationstatus } = req.body;
+//     const doctor = await railwayModel.findByIdAndUpdate(doctorId, {
+//       verificationstatus,
+//     });
+//     const user = await userModel.findOne({ _id: doctor.userId });
+//     const notifcation = user.notifcation;
+//     notifcation.push({
+//       type: "notification-for-account-request-updated",
+//       message: `Your Application Account Request Has been verified successfully `,
+//       onClickPath: "/notification",
+//     });
+//     user.isVerified === "approved" ? true : false;
+//     await user.save();
+//     res.status(201).send({
+//       success: true,
+//       message: "Account Status verified",
+//       data: doctor,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       message: "Eror in Account Status verification",
+//       error,
+//     });
+//   }
+// };
+const changeVerificationStatusController = async (req, res) => {
+  try {
+    const { doctorId, verificationstatus } = req.body;
+    const doctors = await railwayModel.findByIdAndUpdate(doctorId, {
+      verificationstatus,
+    });
+    const user = await userModel.findOne({ _id: doctors.userId });
+    const notifcation = user.notifcation;
+    notifcation.push({
+      type: "applicants-account-request-updated",
+      message: `Your Application Account Request has been Verified Successfully`,
+      onClickPath: "/notification",
+    });
+    // extra thing h
+    user.isVerified = verificationstatus === "approved" ? true : false;
+    await user.save();
+    res.status(200).send({
+      success: true,
+      message: "Account status Updated ",
+      data: doctors,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "error while getting doctors data",
+      error,
+    });
+  }
+};
 /** Generate pdf */
 const exportUserPdf = async (req, res) => {
   try {
@@ -114,4 +173,5 @@ module.exports = {
   getAllUsersController,
   changeAccountStatusController,
   exportUserPdf,
+  changeVerificationStatusController,
 };

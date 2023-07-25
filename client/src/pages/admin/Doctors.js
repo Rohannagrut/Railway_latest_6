@@ -62,6 +62,29 @@ const Doctors = () => {
     }
   };
 
+  const handleAccountStatustoVerify = async (record, verificationstatus) => {
+    try {
+      const res = await axios.post(
+        "/api/v1/admin/changeAccountStatustoVerify",
+        {
+          doctorId: record._id,
+          userId: record.userId,
+          verificationstatus: verificationstatus,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      if (res.data.success) {
+        message.success(res.data.message);
+        window.location.reload();
+      }
+    } catch (error) {
+      message.error("Something Went Wrong");
+    }
+  };
   useEffect(() => {
     getDoctors();
   }, []);
@@ -151,7 +174,24 @@ const Doctors = () => {
       title: "phone",
       dataIndex: "phone",
     },
-
+    {
+      title: "Actions",
+      dataIndex: "actions",
+      render: (text, record) => (
+        <div className="d-flex">
+          {record.verificationstatus === "pending" ? (
+            <button
+              className="btn btn-success"
+              onClick={() => handleAccountStatustoVerify(record, "approved")}
+            >
+              Verify
+            </button>
+          ) : (
+            <button className="btn btn-danger">Verified</button>
+          )}
+        </div>
+      ),
+    },
     {
       title: "Actions",
       dataIndex: "actions",

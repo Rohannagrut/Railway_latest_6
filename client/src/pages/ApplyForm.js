@@ -178,7 +178,7 @@ const ApplyForm = () => {
               <Input type="text" placeholder="Season Ticket no" />
             </Form.Item>
           </Col>
-          <Col xs={24} md={24} lg={8}>
+          {/* <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="Reason for applying "
               name="reason"
@@ -187,7 +187,7 @@ const ApplyForm = () => {
             >
               <Input type="text" placeholder="Internship purpose" />
             </Form.Item>
-          </Col>
+          </Col> */}
           <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="Timings"
