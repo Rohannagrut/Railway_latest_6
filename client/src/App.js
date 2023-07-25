@@ -71,14 +71,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
+            {/* <Route
               path="/add-documents"
               element={
                 <ProtectedRoute>
                   <UploadImage />
                 </ProtectedRoute>
               }
-            />
+            /> */}
             <Route
               path="/upload-image"
               element={
