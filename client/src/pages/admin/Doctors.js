@@ -178,49 +178,52 @@ const Doctors = () => {
               style={{
                 "margin-left": "400px",
                 "margin-top": "0px",
-                border: "5px solid black",
+                // border: "5px solid black",
               }}
             >
-              <div style={{ "margin-top": "180px", "margin-left": "129px" }}>
+              <div style={{ "margin-top": "185px", "margin-left": "133px" }}>
                 <p>
                   {selectedBill.firstName} {selectedBill.lastName}
                 </p>
               </div>
-              <div style={{ "margin-top": "3px" }}>
-                <span style={{ "margin-left": "57px" }}>
+              <div style={{ "margin-top": "-10px" }}>
+                <span style={{ "margin-left": "60px" }}>
                   {selectedBill.age}
                 </span>
+
                 <span
-                  style={{ "margin-left": "438.5px", "margin-top": "57px" }}
+                  style={{ "margin-left": "438.5px", "margin-top": "10px" }}
                 >
                   {selectedBill.birth}
                 </span>
               </div>
 
-              <div style={{ "margin-top": "55px" }}>
+              <div style={{ "margin-top": "65px" }}>
                 <span style={{ "margin-left": "40px" }}>
                   {selectedBill.class}
                 </span>
                 <span style={{ "margin-left": "65px" }}>
                   {selectedBill.period}
                 </span>
-                <span style={{ "margin-left": "76px" }}>
+                <span style={{ "margin-left": "76px", "margin-top": "-5px" }}>
                   {selectedBill.from}
                 </span>
                 <span style={{ "margin-left": "76px" }}>{selectedBill.to}</span>
               </div>
 
-              <div style={{ "margin-top": "50px" }}>
+              <div style={{ "margin-top": "40px" }}>
                 <span style={{ "margin-left": "301.6px" }}>
                   {selectedBill.previousno}
                 </span>
-                <span style={{ "margin-left": "272.2px" }}>
+                <span
+                  style={{ "margin-left": "269.2px", "margin-top": "15px" }}
+                >
                   {selectedBill.previousticket}
                 </span>
               </div>
 
-              <div style={{ "margin-top": "18.9px" }}>
-                <span style={{ "margin-left": "37.8px" }}>
+              <div style={{ "margin-top": "1px" }}>
+                <span style={{ "margin-left": "55.8px" }}>
                   {selectedBill.previousfrom}
                 </span>{" "}
                 <span style={{ "margin-left": "94.5px" }}>
