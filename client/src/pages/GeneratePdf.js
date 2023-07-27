@@ -81,10 +81,7 @@ const GeneratePdf = () => {
       title: "Season Ticket No",
       dataIndex: "seasonticketNo",
     },
-    {
-      title: "Reason",
-      dataIndex: "reason",
-    },
+
     {
       title: "Data",
       dataIndex: "timings",

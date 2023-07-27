@@ -18,10 +18,12 @@ import moment from "moment";
 // import RailwayForm from "./RailwayForm";
 // import UserContext from "./useContext";
 import "./InvoiceStyles.css";
+import { userMenu } from "../../Data/data";
 
 const Doctors = () => {
   const componentRef = useRef();
   const [doctors, setDoctors] = useState([]);
+  const [Users, setUsers] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
   const [popupModal, setPopupModal] = useState(false);
   const getDoctors = async () => {
@@ -38,6 +40,30 @@ const Doctors = () => {
       console.log(error);
     }
   };
+  // const handleAccountStatus = async (record, status) => {
+  //   try {
+  //     const res = await axios.post(
+  //       "/api/v1/admin/changeAccountStatus",
+  //       {
+  //         doctorId: record._id,
+  //         userId: record.userId,
+  //         status: status,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //         },
+  //       }
+  //     );
+  //     if (res.data.success) {
+  //       setUsers(res.data.data);
+  //       message.success(res.data.message);
+  //       // window.location.reload();
+  //     }
+  //   } catch (error) {
+  //     message.error("something went wrong");
+  //   }
+  // };
   const handleAccountStatus = async (record, status) => {
     try {
       const res = await axios.post(
@@ -54,14 +80,14 @@ const Doctors = () => {
         }
       );
       if (res.data.success) {
+        setUsers(res.data.data);
         message.success(res.data.message);
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (error) {
       message.error("something went wrong");
     }
   };
-
   const handleAccountStatustoVerify = async (record, verificationstatus) => {
     try {
       const res = await axios.post(
@@ -79,12 +105,51 @@ const Doctors = () => {
       );
       if (res.data.success) {
         message.success(res.data.message);
-        window.location.reload();
+        setUsers(res.data.verification);
+        console.log(Users);
+        // window.location.reload();
       }
     } catch (error) {
       message.error("Something Went Wrong");
     }
   };
+  // const handleAccountStatustoVerify = async (record, verificationstatus) => {
+  //   try {
+  //     const res = await axios.post(
+  //       "/api/v1/admin/changeAccountStatustoVerify",
+  //       {
+  //         doctorId: record._id,
+  //         userId: record.userId,
+  //         verificationstatus: verificationstatus,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //         },
+  //       }
+  //     );
+  //     if (res.data.success) {
+  //       message.success(res.data.message);
+  //       const isVerified = res.data.data.isVerified;
+  //       console.log("isVerified:", isVerified);
+
+  //       // Update the doctors list with the updated isVerified value
+  //       const updatedDoctors = doctors.map((doctor) => {
+  //         if (doctor._id === record._id) {
+  //           return { ...doctor, isVerified };
+  //         }
+  //         return doctor;
+  //       });
+  //       setDoctors(updatedDoctors);
+
+  //       // window.location.reload();
+  //     }
+  //   } catch (error) {
+  //     message.error("Something Went Wrong");
+  //   }
+  // };
+
+  const handleAddSeasonTicketNo = () => {};
   useEffect(() => {
     getDoctors();
   }, []);
@@ -174,12 +239,31 @@ const Doctors = () => {
       title: "phone",
       dataIndex: "phone",
     },
+    // {
+    //   title: "Actions",
+    //   dataIndex: "actions",
+    //   render: (text, record) => (
+    //     <div className="d-flex">
+    //       {record.isVerified === false ? (
+    //         <button
+    //           className="btn btn-success"
+    //           onClick={() => handleAccountStatustoVerify(record, "approved")}
+    //         >
+    //           Verify
+    //         </button>
+    //       ) : (
+    //         <button className="btn btn-danger">Verified</button>
+    //       )}
+    //     </div>
+    //   ),
+    // },
+    // ...
     {
       title: "Actions",
       dataIndex: "actions",
       render: (text, record) => (
         <div className="d-flex">
-          {record.verificationstatus === "pending" ? (
+          {Users === false ? (
             <button
               className="btn btn-success"
               onClick={() => handleAccountStatustoVerify(record, "approved")}
@@ -192,6 +276,8 @@ const Doctors = () => {
         </div>
       ),
     },
+    // ...
+
     {
       title: "Actions",
       dataIndex: "actions",
@@ -236,7 +322,16 @@ const Doctors = () => {
         </div>
       ),
     },
-
+    // {
+    //   title: "Add Season Ticket",
+    //   dataIndex: "actions",
+    //   render: (text, record) => (
+    //     <Input
+    //       record={record}
+    //       onSubmit={handleAddSeasonTicketNo} // This function will be implemented later
+    //     />
+    //   ),
+    // },
     {
       title: "Print's",
       dataIndex: "_id",

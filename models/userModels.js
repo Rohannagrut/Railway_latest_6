@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
   isVerified: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "pending",
   },
   notifcation: {
     type: Array,

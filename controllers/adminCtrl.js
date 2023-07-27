@@ -73,65 +73,92 @@ const changeAccountStatusController = async (req, res) => {
   }
 };
 // doctor account status
-// const changeVerificationStatusController = async (req, res) => {
-//   try {
-//     const { doctorId, verificationstatus } = req.body;
-//     const doctor = await railwayModel.findByIdAndUpdate(doctorId, {
-//       verificationstatus,
-//     });
-//     const user = await userModel.findOne({ _id: doctor.userId });
-//     const notifcation = user.notifcation;
-//     notifcation.push({
-//       type: "notification-for-account-request-updated",
-//       message: `Your Application Account Request Has been verified successfully `,
-//       onClickPath: "/notification",
-//     });
-//     user.isVerified === "approved" ? true : false;
-//     await user.save();
-//     res.status(201).send({
-//       success: true,
-//       message: "Account Status verified",
-//       data: doctor,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).send({
-//       success: false,
-//       message: "Eror in Account Status verification",
-//       error,
-//     });
-//   }
-// };
 const changeVerificationStatusController = async (req, res) => {
   try {
     const { doctorId, verificationstatus } = req.body;
-    const doctors = await railwayModel.findByIdAndUpdate(doctorId, {
+    const doctor = await userModel.findByIdAndUpdate(doctorId, {
       verificationstatus,
     });
-    const user = await userModel.findOne({ _id: doctors.userId });
+    const user = await userModel.findOne({ _id: doctor.userId });
     const notifcation = user.notifcation;
     notifcation.push({
-      type: "applicants-account-request-updated",
-      message: `Your Application Account Request has been Verified Successfully`,
+      type: "notification-for-account-request-updated",
+      message: `Your Application Account Request Has been verified successfully `,
       onClickPath: "/notification",
     });
-    // extra thing h
-    user.isVerified = verificationstatus === "approved" ? true : false;
+    user.isVerified === "approved" ? true : false;
     await user.save();
-    res.status(200).send({
+    res.status(201).send({
       success: true,
-      message: "Account status Updated ",
-      data: doctors,
+      message: "Account Status verified",
+      data: doctor,
+      verification: user.isVerified,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "error while getting doctors data",
+      message: "Eror in Account Status verification",
       error,
     });
   }
 };
+// const changeVerificationStatusController = async (req, res) => {
+//   try {
+//     const { doctorId, verificationstatus } = req.body;
+//     const doctors = await railwayModel.findById(doctorId);
+//     const user = await userModel.findOne({ _id: doctors.userId });
+//     const notifcation = user.notifcation;
+//     notifcation.push({
+//       type: "applicants-account-request-updated",
+//       message: `Your Application Account Request has been Verified Successfully`,
+//       onClickPath: "/notification",
+//     });
+//     // extra thing h
+//     user.isVerified = verificationstatus === "approved" ? true : false;
+//     await user.save();
+//     res.status(200).send({
+//       success: true,
+//       message: "Account status Updated ",
+//       data: doctors,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       message: "error while getting doctors data",
+//       error,
+//     });
+//   }
+// };
+// const getuserverified = async (req, res) => {
+//   try {
+//     const { doctorId, verificationstatus } = req.body;
+//     const doctors = await railwayModel.findById({ doctorId });
+//     const user = await userModel.findByIdAndUpdate({ _id: doctors.userId });
+
+//     const notifcation = user.notifcation;
+//     notifcation.push({
+//       type: "applicants-account-request-updated",
+//       message: `Your Application Account Request has been Verified Successfully`,
+//       onClickPath: "/notification",
+//     });
+//     const updatedUser = await user.save();
+//     updatedUser.password = undefined;
+//     res.status(200).send({
+//       success: true,
+//       message: "All notification deleted successfully",
+//       data: updatedUser,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       error,
+//       message: "Error WHile Applying in notification",
+//     });
+//   }
+// };
 /** Generate pdf */
 const exportUserPdf = async (req, res) => {
   try {
@@ -174,4 +201,5 @@ module.exports = {
   changeAccountStatusController,
   exportUserPdf,
   changeVerificationStatusController,
+  // getuserverified,
 };
